@@ -56,11 +56,11 @@
       <div class="result">
         <h2 data-ng-repeat="result in appCtrl.results">{{result.value1}} {{result.operator}} 
           <p align="center">{{result.note}}</p>  
-          <p align="center">{{result.result}}  | 14GA sheets 120x60</p>
-          <p align="center">{{result.value_16GA_120x48}} | 16GA sheets 120x48</p>
-          <p align="center">{{result.value_16GA_120x60}} | 16GA sheets 120x60</p>
-          <p align="center">{{result.value_18GA}} | 18GA sheets 120x48</p>
-          <p align="center">{{result.value_20GA}} | 20GA sheets 120x48</p>
+          <p align="center">{{result.result}}  | 14GA CR sheets 120x60</p>
+          <p align="center">{{result.value_16GA_120x48}} | 16GA CR sheets 120x48</p>
+          <p align="center">{{result.value_16GA_120x60}} | 16GA CR sheets 120x60</p>
+          <p align="center">{{result.value_18GA}} | 18GA CR sheets 120x48</p>
+          <p align="center">{{result.value_20GA}} | 20GA CR sheets 120x48</p>
           
         </h2>
       </div>
@@ -71,11 +71,12 @@
       <!-- FOR ABOVE: You can add ng-show="query" to the <ul> that will only display results if query is not false.-->
       <h1>Results Combined</h1>
       <div class="result combined">
-        <h2>{{appCtrl.sumA}} | 14GA sheets 120x60</h2>
-        <h2>{{appCtrl.sumD}} | 16GA sheets 120x48</h2>
-        <h2>{{appCtrl.sumC}} | 16GA sheets 120x60</h2>
-        <h2>{{appCtrl.sumB}} | 18GA sheets 120x48</h2>
-        <h2>{{appCtrl.sumE}} | 20GA sheets 120x48</h2>
+        <h2>{{appCtrl.sumA}} | 14GA CR sheets 120x60</h2>
+        <h2>{{appCtrl.sumD}} | 16GA CR sheets 120x48</h2>
+        <h2>{{appCtrl.sumC}} | 16GA CR sheets 120x60</h2>
+        <h2>{{appCtrl.sumB}} | 18GA CR sheets 120x48</h2>
+        <h2>{{appCtrl.sumE}} | 20GA CR sheets 120x48</h2>
+        <!--<h2>-Put Breakline Here-</h2> -->
       </div>
     </div>
 

@@ -17,6 +17,9 @@ let operators = [
 
   {name:'EL: 116EL-SQ', symbol:'116EL-SQ'},
 
+  {name:'EL: 516EL-SQ', symbol:'516EL-SQ'},
+  {name:'EL: 518EL-SQ', symbol:'518EL-SQ'},
+
 ];
 
 
@@ -99,7 +102,8 @@ app.route('/calculator')
     let value_20GA = req.body.value_20GA
     let note = req.body.note
 
-    //GP Door calculation
+
+    //Elite: 100 Cabinet Calculation
 
     if ( operator == 'EL: 116EL-SQ' )   
     {value_14GA = 0;
@@ -108,7 +112,25 @@ app.route('/calculator')
     value_18GA = 0;
     value_20GA = value1 / config.EL_100_TubsPerSheet;}
 
+    //Elite: 500 Cabinet Calculation
 
+    if ( operator == 'EL: 516EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.EL_516_SQ_FrontsPerSheet;
+    value_18GA = 0;
+    value_20GA = value1 / config.EL_500_TubsPerSheet;}
+
+    if ( operator == 'EL: 518EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.EL_518_SQ_FrontsPerSheet;
+    value_18GA = 0;
+    value_20GA = value1 / config.EL_500_TubsPerSheet;}
+
+
+
+    
 
     value_14GA = Math.round(value_14GA * 1000);
     value_14GA = value_14GA / 1000;

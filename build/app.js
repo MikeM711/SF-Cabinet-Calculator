@@ -18,7 +18,7 @@ app.controller('AppController', ['$http', function($http) {
 
    var apiRoute = 'http://localhost:3000/calculator';
 
-   var apiRoute = 'https://ag-sf-calculator.herokuapp.com/calculator';
+   //var apiRoute = 'https://ag-sf-calculator.herokuapp.com/calculator';
 
 
 

@@ -2,11 +2,23 @@
 
     "Elite": "Here are the Elite Cabinets",
     
+
+    
+    "Elite_100": "Here are the Elite 100 Cabinets",
+
     "EL_100_TubsPerSheet":8,
 
     "EL_116_SQ_FrontsPerSheet":8,
 
 
+
+    "Elite_500": "Here are the Elite 500 Cabinets",
+
+    "EL_500_TubsPerSheet":13,
+
+    "EL_516_SQ_FrontsPerSheet":16,
+    "EL_518_SQ_FrontsPerSheet":16,
+    
 
     "END":"End JSON"
   }
