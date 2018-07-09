@@ -1,0 +1,23 @@
+Use this if you want to add more sheet values
+
+// Calculate the 16GA_120x48
+console.log(value_16GA_120x48, "OLD value_16GA_120x48 is here")
+// Rouding 16GA_120x48
+value_16GA_120x48 = Math.round(value_16GA_120x48 * 1000);
+value_16GA_120x48 = value_16GA_120x48 / 1000;
+// Rounded 16GA_120x48
+console.log(value_16GA_120x48, "NEW value_16GA_120x48 is here")
+
+array_16GA_120x48.push(value_16GA_120x48);
+      
+console.log(array_16GA_120x48);
+
+var sum_16GA_120x48 = array_16GA_120x48.reduce(function(a, b) { return a + b; }, 0);
+
+sum_16GA_120x48 = Math.round(sum_16GA_120x48 * 1000);
+sum_16GA_120x48 = sum_16GA_120x48 / 1000;
+
+console.log(sum_16GA_120x48, 'this is the NEW sum_16GA_120x48'); //where long numbers are
+console.log('hello in 2')
+var lastsum_16GA_120x48 = sum_16GA_120x48
+console.log(lastsum_16GA_120x48, 'this is the last sum_16GA_120x48') //where long numbers are

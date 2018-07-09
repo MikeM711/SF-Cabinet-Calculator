@@ -1,0 +1,5 @@
+if ( operator == 'GP100 36X36' )   
+    {value_14GA = value1 / config.GP_36X36_DoorsPerSheet;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1*4) / config.GP_36X36_RFsPerSheet}

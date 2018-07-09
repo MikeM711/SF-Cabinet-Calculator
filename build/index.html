@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+
+<html data-ng-app="App">
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Lora|Lato:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="main.css" charset="utf-8">
+
+    <!-- Below, was able to put text on same line!!-->
+    <p><title>SF Cabinet Calculator</title>
+    <h6 style="float:right;">Michael McCabe (7/9/2018)</h6>
+  </head>
+    </p>
+  <!-- App Controller is the template, appCtrl is the parameters we are using to make the template function-->
+  <body data-ng-controller="AppController as appCtrl"></body> <!–– has dropdown>
+    <h1>SF Cabinet Material Calculator</h1>
+    <div class="solve"> <!–– deleting this causes UI to become diffent>
+      <h2 data-ng-show="appCtrl.error" class="error">{{appCtrl.error}}</h2>
+      <form method="post">
+        <h2>Select a Cabinet</h2>
+        
+        <!-- My selection-->
+        <select data-ng-model="operator" data-ng-options="operatorOption.name for operatorOption in appCtrl.operators"
+        >
+          <option value="">-- Choose A Cabinet --</option>
+          
+          
+        </select>
+        <h2>Select QTY</h2>
+
+        <p>
+        <input data-ng-model="value1" type="number" placeholder=" Number of Cabinets">
+
+        <!–– EDIT1
+        Below was replaced with code after it
+        <span><!–– EDIT1{{operator ? operator.symbol : "?"}}</span>
+
+        <span>{{operator.symbol}}</span>
+
+        <!–– EDIT1 <input data-ng-model="value2" type="number" placeholder="2nd Number">
+        
+        <!–– EDIT1 Comment: below I took out the "=" sign.... >
+        
+        </p>
+
+        <button data-ng-click="appCtrl.calculate(operator, value1, value2); value1=undefined; value2=undefined; operator=undefined" type="button">Calculate</button>
+      </form>
+    </div>
+
+    
+<!---<p> tag helps me put stuff on new lines-->
+
+    <div data-ng-show="appCtrl.results.length">
+      <h1>Results</h1>
+      <div class="result">
+        <h2 data-ng-repeat="result in appCtrl.results">{{result.value1}} {{result.operator}} 
+          <p align="center">{{result.note}}</p>  
+          <p align="center">{{result.result}}  | 14GA sheets 120x60</p>
+          <p align="center">{{result.value_16GA_120x48}} | 16GA sheets 120x48</p>
+          <p align="center">{{result.value_16GA_120x60}} | 16GA sheets 120x60</p>
+          <p align="center">{{result.value_18GA}} | 18GA sheets 120x48</p>
+          <p align="center">{{result.value_20GA}} | 20GA sheets 120x48</p>
+          
+        </h2>
+      </div>
+    </div>
+
+
+    <div data-ng-show="appCtrl.results.length"> 
+      <!-- FOR ABOVE: You can add ng-show="query" to the <ul> that will only display results if query is not false.-->
+      <h1>Results Combined</h1>
+      <div class="result combined">
+        <h2>{{appCtrl.sumA}} | 14GA sheets 120x60</h2>
+        <h2>{{appCtrl.sumD}} | 16GA sheets 120x48</h2>
+        <h2>{{appCtrl.sumC}} | 16GA sheets 120x60</h2>
+        <h2>{{appCtrl.sumB}} | 18GA sheets 120x48</h2>
+        <h2>{{appCtrl.sumE}} | 20GA sheets 120x48</h2>
+      </div>
+    </div>
+
+    
+
+    <!-- Getting stuff to not repeat -->
+    
+
+  
+
+    <!–– EDIT3 comment: END combined results>
+
+    <!–– EDIT5 OLD <h2 ng-repeat="result in appCtrl.results">   <!–– EDIT5 OLD </h2>  <!–– EDIT5 OLD   {{result.sum}}</h2> 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js" charset="utf-8"></script>
+  <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
+
+
+
+<!--
+<h2>the array sum is {{appCtrl.A}}</h2>
+<h2>the clean sum is {{appCtrl.sumA}}</h2>
+
+
+
+<h2>the sum is {{appCtrl.A}}</h2>
+<div ng-repeat="A in appCtrl.A|limitTo:4">Give this a shot{{appCtrl.A}}</div>
+<!–– and the comment closes with ––>
+-->
