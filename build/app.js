@@ -16,9 +16,9 @@ app.controller('AppController', ['$http', function($http) {
 
   //Because I am currently using localhost, I use the localhost:3000/calculator as my apiRoute
 
-   //var apiRoute = 'http://localhost:3000/calculator';
+   var apiRoute = 'http://localhost:3000/calculator';
 
-   var apiRoute = 'https://ag-sf-calculator.herokuapp.com/calculator';
+   //var apiRoute = 'https://ag-sf-calculator.herokuapp.com/calculator';
 
 
 
@@ -36,6 +36,7 @@ app.controller('AppController', ['$http', function($http) {
   _this.F = []; //18GA Stainless
   _this.G = []; //20GA Stainless
   _this.H = []; //16GA Galvanneal
+  _this.I = []; //20GA Galvanneal
 
 
   //the below equation is not needed
@@ -74,6 +75,7 @@ console.log("work pls");
        _this.sumF = res.data.F
        _this.sumG = res.data.G
        _this.sumH = res.data.H
+       _this.sumI = res.data.I
 
         
         }, function(res) {

@@ -15,6 +15,8 @@ var config = require('./cabinetdata.json');
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
 
+  {name:'Classic 999', symbol:'Classic 999'}, 
+
   {name:'EL: 116EL-SQ', symbol:'116EL-SQ'},
   {name:'EL: 128EL-SQ', symbol:'128EL-SQ'},
 
@@ -24,7 +26,11 @@ let operators = [
 
   {name:'EL-SSF: 128EL-SQ-SSF', symbol:'128EL-SQ-SSF'},
 
+  {name:'HDOC-10: Punch', symbol:'HDOC-10: Punch'},
   {name:'HDOC-20: Punch', symbol:'HDOC-20: Punch'},
+  {name:'HDOC-30: Punch', symbol:'HDOC-30: Punch'},
+
+  {name:'Safeguard: 10lb ET Tub', symbol:'Safeguard: 10lb ET Tub'},
 
 ];
 
@@ -79,6 +85,7 @@ var array_20GA = [];
 var array_18GA_SS = []; // Stainless
 var array_20GA_SS = []; // Stainless
 var array_16GA_Galv = []; // Galvanneal
+var array_20GA_Galv = []; // Galvanneal
 
 app.route('/calculator')
 
@@ -97,6 +104,7 @@ app.route('/calculator')
     array_18GA_SS = [];
     array_20GA_SS = [];
     array_16GA_Galv= [];
+    array_20GA_Galv= [];
   })
   
   .post((req, res) => {
@@ -115,7 +123,22 @@ app.route('/calculator')
     let value_18GA_SS = req.body.value_18GA_SS
     let value_20GA_SS = req.body.value_20GA_SS
     let value_16GA_Galv = req.body.value_16GA_Galv
+    let value_20GA_Galv = req.body.value_20GA_Galv
     let note = req.body.note
+
+    //Classic Calculations
+
+    if ( operator == 'Classic 999' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = value1 / config.Classic_999_FullAssyPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
+
 
     //Elite: STANDARD CALCULATIONS
 
@@ -129,7 +152,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_100_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;}
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
 
     if ( operator == 'EL: 128EL-SQ' )   
     {value_14GA = 0;
@@ -139,7 +163,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_100_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;}
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
 
     //Elite: 500 Cabinet Calculation - Standard
 
@@ -151,7 +176,8 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;}
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
 
     if ( operator == 'EL: 516EL-SQ' )   
     {value_14GA = 0;
@@ -161,7 +187,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_500_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;}
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
 
     if ( operator == 'EL: 518EL-SQ' )   
     {value_14GA = 0;
@@ -171,7 +198,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_500_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;}
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
 
     //Elite: SSF - Stainless Steel Front CALCULATIONS
 
@@ -183,9 +211,21 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = value1 / config.EL_128_SQ_SSF_FrontsPerSheet;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;}
+    value_16GA_Galv = 0;
+    value_20GA_Galv = 0;}
 
     //HDOC Calculations
+
+    if ( operator == 'HDOC-10: Punch')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = value1 / config.HDOC_10_Punch_FullAssyPerSheet;
+    value_20GA_Galv = 0;}
 
     if ( operator == 'HDOC-20: Punch')   
     {value_14GA = 0;
@@ -195,10 +235,32 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = value1 / config.HDOC_20_Punch_FullAssyPerSheet;}
+    value_16GA_Galv = value1 / config.HDOC_20_Punch_FullAssyPerSheet;
+    value_20GA_Galv = 0;}
 
+    if ( operator == 'HDOC-30: Punch')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = value1 / config.HDOC_30_Punch_FullAssyPerSheet;
+    value_20GA_Galv = 0;}
     
-    
+    //Safeguard ET Tub Calculations
+
+    if ( operator == 'Safeguard: 10lb ET Tub')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;
+    value_20GA_Galv = value1 / config.Safeguard_ET_Tub_10lb;}
 
 
 
@@ -356,6 +418,21 @@ app.route('/calculator')
 
     var lastsum_16GA_Galv = sum_16GA_Galv
 
+
+    // Calculate the 20GA Galvanneal
+
+    value_20GA_Galv = Math.round(value_20GA_Galv * 1000);
+    value_20GA_Galv = value_20GA_Galv / 1000;
+
+    array_20GA_Galv.push(value_20GA_Galv);
+
+    var sum_20GA_Galv = array_20GA_Galv.reduce(function(a, b) { return a + b; }, 0);
+
+    sum_20GA_Galv = Math.round(sum_20GA_Galv * 1000);
+    sum_20GA_Galv = sum_20GA_Galv / 1000;
+
+    var lastsum_20GA_Galv = sum_20GA_Galv
+
     res.json({
       A: 
         lastsum_14GA,
@@ -380,6 +457,9 @@ app.route('/calculator')
 
       H:
         lastsum_16GA_Galv,
+    
+      I:
+        lastsum_20GA_Galv,
 
       result: {   
         operator: req.body.operator.symbol, 
@@ -392,6 +472,7 @@ app.route('/calculator')
         value_18GA_SS,
         value_20GA_SS,
         value_16GA_Galv,
+        value_20GA_Galv,
         note,
       },
 

@@ -1,7 +1,13 @@
 {
 
+
+    "Classic": "Here are the Classic Cabinets",
+
+    "Classic_999_FullAssyPerSheet":7,
+
+
+
     "Elite": "Here are the Elite Cabinets",
-    
 
     
     "Elite_100": "Here are the Elite 100 Cabinets - Standard",
@@ -22,7 +28,6 @@
     "EL_518_SQ_FrontsPerSheet":16,
     
 
-
     "Elite_100_SSF": "Here are the Elite 100 Cabinets - SSF",
     
     "EL_100_SSF_TubsPerSheet":6,
@@ -32,10 +37,14 @@
 
     "HDOC_Punch": "Here are the HDOC Cabinets - Punch",
 
+    "HDOC_10_Punch_FullAssyPerSheet":3,
     "HDOC_20_Punch_FullAssyPerSheet":2,
+    "HDOC_30_Punch_FullAssyPerSheet":2,
 
+
+    "Safeguard_ET_Tub": "Here are the Safeguard/ET Tubs",
     
-    
+    "Safeguard_ET_Tub_10lb":7,
 
     "END":"End JSON"
   }
