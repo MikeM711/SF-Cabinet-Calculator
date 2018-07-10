@@ -30,6 +30,18 @@ let operators = [
   {name:'HDOC-20: Punch', symbol:'HDOC-20: Punch'},
   {name:'HDOC-30: Punch', symbol:'HDOC-30: Punch'},
 
+  {name:'HDOC-10: Laser 120x48', symbol:'HDOC-10: Laser 120x48'},
+  {name:'HDOC-20: Laser 120x48', symbol:'HDOC-20: Laser 120x48'},
+  {name:'HDOC-30: Laser 120x48', symbol:'HDOC-30: Laser 120x48'},
+
+  {name:'HDOC-10: Laser 120x60', symbol:'HDOC-10: Laser 120x60'},
+  {name:'HDOC-20: Laser 120x60', symbol:'HDOC-20: Laser 120x60'},
+  {name:'HDOC-30: Laser 120x60', symbol:'HDOC-30: Laser 120x60'},
+
+
+
+  {name:'Hydrant House', symbol:'Hydrant House'},
+
   {name:'Safeguard: 10lb ET Tub', symbol:'Safeguard: 10lb ET Tub'},
 
 ];
@@ -84,7 +96,8 @@ var array_18GA = [];
 var array_20GA = [];
 var array_18GA_SS = []; // Stainless
 var array_20GA_SS = []; // Stainless
-var array_16GA_Galv = []; // Galvanneal
+var array_16GA_Galv_120x48 = []; // Galvanneal
+var array_16GA_Galv_120x60 = []; // Galvanneal
 var array_20GA_Galv = []; // Galvanneal
 
 app.route('/calculator')
@@ -103,7 +116,8 @@ app.route('/calculator')
     array_20GA = [];
     array_18GA_SS = [];
     array_20GA_SS = [];
-    array_16GA_Galv= [];
+    array_16GA_Galv_120x48= [];
+    array_16GA_Galv_120x60= [];
     array_20GA_Galv= [];
   })
   
@@ -122,7 +136,8 @@ app.route('/calculator')
     let value_20GA = req.body.value_20GA
     let value_18GA_SS = req.body.value_18GA_SS
     let value_20GA_SS = req.body.value_20GA_SS
-    let value_16GA_Galv = req.body.value_16GA_Galv
+    let value_16GA_Galv_120x48 = req.body.value_16GA_Galv_120x48
+    let value_16GA_Galv_120x60 = req.body.value_16GA_Galv_120x60
     let value_20GA_Galv = req.body.value_20GA_Galv
     let note = req.body.note
 
@@ -136,7 +151,8 @@ app.route('/calculator')
     value_20GA = value1 / config.Classic_999_FullAssyPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
 
@@ -152,7 +168,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_100_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     if ( operator == 'EL: 128EL-SQ' )   
@@ -163,7 +180,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_100_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     //Elite: 500 Cabinet Calculation - Standard
@@ -176,7 +194,8 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     if ( operator == 'EL: 516EL-SQ' )   
@@ -187,7 +206,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_500_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     if ( operator == 'EL: 518EL-SQ' )   
@@ -198,7 +218,8 @@ app.route('/calculator')
     value_20GA = value1 / config.EL_500_TubsPerSheet;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     //Elite: SSF - Stainless Steel Front CALCULATIONS
@@ -211,10 +232,11 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = value1 / config.EL_128_SQ_SSF_FrontsPerSheet;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
-    //HDOC Calculations
+    //HDOC Calculations - Punch
 
     if ( operator == 'HDOC-10: Punch')   
     {value_14GA = 0;
@@ -224,7 +246,8 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = value1 / config.HDOC_10_Punch_FullAssyPerSheet;
+    value_16GA_Galv_120x48 = value1 / config.HDOC_10_Punch_FullAssyPerSheet;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     if ( operator == 'HDOC-20: Punch')   
@@ -235,7 +258,8 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = value1 / config.HDOC_20_Punch_FullAssyPerSheet;
+    value_16GA_Galv_120x48 = value1 / config.HDOC_20_Punch_FullAssyPerSheet;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
     if ( operator == 'HDOC-30: Punch')   
@@ -246,9 +270,100 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = value1 / config.HDOC_30_Punch_FullAssyPerSheet;
+    value_16GA_Galv_120x48 = value1 / config.HDOC_30_Punch_FullAssyPerSheet;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
     
+    //HDOC Calculations - Laser 120x48
+
+    if ( operator == 'HDOC-10: Laser 120x48')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = value1 / config.HDOC_10_Laser_120x48_FullAssyPerSheet;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'HDOC-20: Laser 120x48')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = value1 / config.HDOC_20_Laser_120x48_FullAssyPerSheet;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'HDOC-30: Laser 120x48')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = value1 / config.HDOC_30_Laser_120x48_FullAssyPerSheet;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
+
+    //HDOC Calculations - Laser 120x60
+
+    if ( operator == 'HDOC-10: Laser 120x60')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0
+    value_16GA_Galv_120x60 = value1 / config.HDOC_10_Laser_120x60_FullAssyPerSheet;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'HDOC-20: Laser 120x60')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0
+    value_16GA_Galv_120x60 = value1 / config.HDOC_20_Laser_120x60_FullAssyPerSheet;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'HDOC-30: Laser 120x60')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0
+    value_16GA_Galv_120x60 = value1 / config.HDOC_30_Laser_120x60_FullAssyPerSheet;
+    value_20GA_Galv = 0;}
+
+    //Hydrant House Calculation
+
+    if ( operator == 'Hydrant House')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = value1 / config.Hydrant_House;
+    value_20GA_Galv = 0;}
+
     //Safeguard ET Tub Calculations
 
     if ( operator == 'Safeguard: 10lb ET Tub')   
@@ -259,7 +374,8 @@ app.route('/calculator')
     value_20GA = 0;
     value_18GA_SS = 0;
     value_20GA_SS = 0;
-    value_16GA_Galv = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = value1 / config.Safeguard_ET_Tub_10lb;}
 
 
@@ -405,19 +521,32 @@ app.route('/calculator')
 
     var lastsum_20GA_SS = sum_20GA_SS
 
-    // Calculate the 16GA Galvanneal
-    value_16GA_Galv = Math.round(value_16GA_Galv * 1000);
-    value_16GA_Galv = value_16GA_Galv / 1000;
+    // Calculate the 16GA Galvanneal 120x48
+    value_16GA_Galv_120x48 = Math.round(value_16GA_Galv_120x48 * 1000);
+    value_16GA_Galv_120x48 = value_16GA_Galv_120x48 / 1000;
 
-    array_16GA_Galv.push(value_16GA_Galv);
+    array_16GA_Galv_120x48.push(value_16GA_Galv_120x48);
 
-    var sum_16GA_Galv = array_16GA_Galv.reduce(function(a, b) { return a + b; }, 0);
+    var sum_16GA_Galv_120x48 = array_16GA_Galv_120x48.reduce(function(a, b) { return a + b; }, 0);
 
-    sum_16GA_Galv = Math.round(sum_16GA_Galv * 1000);
-    sum_16GA_Galv = sum_16GA_Galv / 1000;
+    sum_16GA_Galv_120x48 = Math.round(sum_16GA_Galv_120x48 * 1000);
+    sum_16GA_Galv_120x48 = sum_16GA_Galv_120x48 / 1000;
 
-    var lastsum_16GA_Galv = sum_16GA_Galv
+    var lastsum_16GA_Galv_120x48 = sum_16GA_Galv_120x48
 
+
+    // Calculate the 16GA Galvanneal 120x60
+    value_16GA_Galv_120x60 = Math.round(value_16GA_Galv_120x60 * 1000);
+    value_16GA_Galv_120x60 = value_16GA_Galv_120x60 / 1000;
+
+    array_16GA_Galv_120x60.push(value_16GA_Galv_120x60);
+
+    var sum_16GA_Galv_120x60 = array_16GA_Galv_120x60.reduce(function(a, b) { return a + b; }, 0);
+
+    sum_16GA_Galv_120x60 = Math.round(sum_16GA_Galv_120x60 * 1000);
+    sum_16GA_Galv_120x60 = sum_16GA_Galv_120x60 / 1000;
+
+    var lastsum_16GA_Galv_120x60 = sum_16GA_Galv_120x60
 
     // Calculate the 20GA Galvanneal
 
@@ -456,9 +585,12 @@ app.route('/calculator')
         lastsum_20GA_SS,
 
       H:
-        lastsum_16GA_Galv,
+        lastsum_16GA_Galv_120x48,
     
       I:
+        lastsum_16GA_Galv_120x60,
+
+      J:
         lastsum_20GA_Galv,
 
       result: {   
@@ -471,7 +603,8 @@ app.route('/calculator')
         value_20GA,
         value_18GA_SS,
         value_20GA_SS,
-        value_16GA_Galv,
+        value_16GA_Galv_120x48,
+        value_16GA_Galv_120x60,
         value_20GA_Galv,
         note,
       },

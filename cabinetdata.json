@@ -41,6 +41,21 @@
     "HDOC_20_Punch_FullAssyPerSheet":2,
     "HDOC_30_Punch_FullAssyPerSheet":2,
 
+    "HDOC_Laser_120x48": "Here are the HDOC Cabinets - Laser 120x48",
+
+    "HDOC_10_Laser_120x48_FullAssyPerSheet":3,
+    "HDOC_20_Laser_120x48_FullAssyPerSheet":2,
+    "HDOC_30_Laser_120x48_FullAssyPerSheet":2,
+
+    "HDOC_Laser_120x60": "Here are the HDOC Cabinets - Laser 120x60",
+
+    "HDOC_10_Laser_120x60_FullAssyPerSheet":4,
+    "HDOC_20_Laser_120x60_FullAssyPerSheet":3,
+    "HDOC_30_Laser_120x60_FullAssyPerSheet":3,
+
+    "Hydrant_House_Product": "Here is the Hydrant House",
+
+    "Hydrant_House":0.166666666,
 
     "Safeguard_ET_Tub": "Here are the Safeguard/ET Tubs",
     
