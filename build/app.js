@@ -33,6 +33,9 @@ app.controller('AppController', ['$http', function($http) {
   _this.C = []; //16GA 120x60
   _this.D = []; //16GA 120x48
   _this.E = []; //20GA
+  _this.F = []; //18GA Stainless
+  _this.G = []; //20GA Stainless
+  _this.H = []; //16GA Galvanneal
 
 
   //the below equation is not needed
@@ -68,6 +71,9 @@ console.log("work pls");
        _this.sumC = res.data.C
        _this.sumD = res.data.D
        _this.sumE = res.data.E
+       _this.sumF = res.data.F
+       _this.sumG = res.data.G
+       _this.sumH = res.data.H
 
         
         }, function(res) {

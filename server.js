@@ -16,9 +16,15 @@ var config = require('./cabinetdata.json');
 let operators = [
 
   {name:'EL: 116EL-SQ', symbol:'116EL-SQ'},
+  {name:'EL: 128EL-SQ', symbol:'128EL-SQ'},
 
+  {name:'EL: 508EL-SQ', symbol:'508EL-SQ'},
   {name:'EL: 516EL-SQ', symbol:'516EL-SQ'},
   {name:'EL: 518EL-SQ', symbol:'518EL-SQ'},
+
+  {name:'EL-SSF: 128EL-SQ-SSF', symbol:'128EL-SQ-SSF'},
+
+  {name:'HDOC-20: Punch', symbol:'HDOC-20: Punch'},
 
 ];
 
@@ -70,6 +76,9 @@ var array_16GA_120x48= [];
 var array_16GA_120x60 = [];
 var array_18GA = [];
 var array_20GA = [];
+var array_18GA_SS = []; // Stainless
+var array_20GA_SS = []; // Stainless
+var array_16GA_Galv = []; // Galvanneal
 
 app.route('/calculator')
 
@@ -85,6 +94,9 @@ app.route('/calculator')
     array_16GA_120x60 = [];
     array_18GA = [];
     array_20GA = [];
+    array_18GA_SS = [];
+    array_20GA_SS = [];
+    array_16GA_Galv= [];
   })
   
   .post((req, res) => {
@@ -100,37 +112,95 @@ app.route('/calculator')
     let value_16GA_120x60 = req.body.value_16GA
     let value_18GA = req.body.value_18GA
     let value_20GA = req.body.value_20GA
+    let value_18GA_SS = req.body.value_18GA_SS
+    let value_20GA_SS = req.body.value_20GA_SS
+    let value_16GA_Galv = req.body.value_16GA_Galv
     let note = req.body.note
 
+    //Elite: STANDARD CALCULATIONS
 
-    //Elite: 100 Cabinet Calculation
+    //Elite: 100 Cabinet Calculation - Standard
 
     if ( operator == 'EL: 116EL-SQ' )   
     {value_14GA = 0;
     value_16GA_120x48= 0;
     value_16GA_120x60 = value1 / config.EL_116_SQ_FrontsPerSheet;
     value_18GA = 0;
-    value_20GA = value1 / config.EL_100_TubsPerSheet;}
+    value_20GA = value1 / config.EL_100_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;}
 
-    //Elite: 500 Cabinet Calculation
+    if ( operator == 'EL: 128EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.EL_128_SQ_FrontsPerSheet;
+    value_18GA = 0;
+    value_20GA = value1 / config.EL_100_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;}
+
+    //Elite: 500 Cabinet Calculation - Standard
+
+    if ( operator == 'EL: 508EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = (value1 / config.EL_500_SurfaceTubsPerSheet) + (value1 / config.EL_508_SQ_SurfaceFrontsPerSheet);
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;}
 
     if ( operator == 'EL: 516EL-SQ' )   
     {value_14GA = 0;
     value_16GA_120x48= 0;
     value_16GA_120x60 = value1 / config.EL_516_SQ_FrontsPerSheet;
     value_18GA = 0;
-    value_20GA = value1 / config.EL_500_TubsPerSheet;}
+    value_20GA = value1 / config.EL_500_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;}
 
     if ( operator == 'EL: 518EL-SQ' )   
     {value_14GA = 0;
     value_16GA_120x48= 0;
     value_16GA_120x60 = value1 / config.EL_518_SQ_FrontsPerSheet;
     value_18GA = 0;
-    value_20GA = value1 / config.EL_500_TubsPerSheet;}
+    value_20GA = value1 / config.EL_500_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;}
 
+    //Elite: SSF - Stainless Steel Front CALCULATIONS
 
+    if ( operator == 'EL-SSF: 128EL-SQ-SSF' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = value1 / config.EL_100_SSF_TubsPerSheet;
+    value_20GA = 0;
+    value_18GA_SS = value1 / config.EL_128_SQ_SSF_FrontsPerSheet;
+    value_20GA_SS = 0;
+    value_16GA_Galv = 0;}
+
+    //HDOC Calculations
+
+    if ( operator == 'HDOC-20: Punch')   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv = value1 / config.HDOC_20_Punch_FullAssyPerSheet;}
 
     
+    
+
+
 
     value_14GA = Math.round(value_14GA * 1000);
     value_14GA = value_14GA / 1000;
@@ -234,27 +304,57 @@ app.route('/calculator')
 
 
     // Calculate the 20GA
-//    console.log(value_20GA, "OLD value_20GA is here")
-    // Rouding 20GA
     value_20GA = Math.round(value_20GA * 1000);
     value_20GA = value_20GA / 1000;
-    // Rounded 20GA
-//    console.log(value_20GA, "NEW value_20GA is here")
 
     array_20GA.push(value_20GA);
-          
-//    console.log(array_20GA);
 
     var sum_20GA = array_20GA.reduce(function(a, b) { return a + b; }, 0);
 
     sum_20GA = Math.round(sum_20GA * 1000);
     sum_20GA = sum_20GA / 1000;
 
-//    console.log(sum_20GA, 'this is the NEW sum_20GA'); //where long numbers are
-//    console.log('hello in 2')
     var lastsum_20GA = sum_20GA
-//    console.log(lastsum_20GA, 'this is the last sum_20GA') //where long numbers are
+
+
+    // Calculate the 18GA Stainless
+    value_18GA_SS = Math.round(value_18GA_SS * 1000);
+    value_18GA_SS = value_18GA_SS / 1000;
+
+    array_18GA_SS.push(value_18GA_SS);
+
+    var sum_18GA_SS = array_18GA_SS.reduce(function(a, b) { return a + b; }, 0);
+
+    sum_18GA_SS = Math.round(sum_18GA_SS * 1000);
+    sum_18GA_SS = sum_18GA_SS / 1000;
+
+    var lastsum_18GA_SS = sum_18GA_SS
     
+    // Calculate the 20GA Stainless
+    value_20GA_SS = Math.round(value_20GA_SS * 1000);
+    value_20GA_SS = value_20GA_SS / 1000;
+
+    array_20GA_SS.push(value_20GA_SS);
+
+    var sum_20GA_SS = array_20GA_SS.reduce(function(a, b) { return a + b; }, 0);
+
+    sum_20GA_SS = Math.round(sum_20GA_SS * 1000);
+    sum_20GA_SS = sum_20GA_SS / 1000;
+
+    var lastsum_20GA_SS = sum_20GA_SS
+
+    // Calculate the 16GA Galvanneal
+    value_16GA_Galv = Math.round(value_16GA_Galv * 1000);
+    value_16GA_Galv = value_16GA_Galv / 1000;
+
+    array_16GA_Galv.push(value_16GA_Galv);
+
+    var sum_16GA_Galv = array_16GA_Galv.reduce(function(a, b) { return a + b; }, 0);
+
+    sum_16GA_Galv = Math.round(sum_16GA_Galv * 1000);
+    sum_16GA_Galv = sum_16GA_Galv / 1000;
+
+    var lastsum_16GA_Galv = sum_16GA_Galv
 
     res.json({
       A: 
@@ -272,6 +372,15 @@ app.route('/calculator')
       E:
         lastsum_20GA,
 
+      F:
+        lastsum_18GA_SS,
+
+      G:
+        lastsum_20GA_SS,
+
+      H:
+        lastsum_16GA_Galv,
+
       result: {   
         operator: req.body.operator.symbol, 
         value1,
@@ -280,6 +389,9 @@ app.route('/calculator')
         value_16GA_120x60,
         value_16GA_120x48,
         value_20GA,
+        value_18GA_SS,
+        value_20GA_SS,
+        value_16GA_Galv,
         note,
       },
 

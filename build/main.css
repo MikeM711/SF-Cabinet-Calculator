@@ -11,7 +11,7 @@ h1 {
 }
 
 h2 {
-  margin: 1rem 0 0;
+  margin: 0.5rem 0 0.5;
 }
 
 h6{
@@ -25,6 +25,7 @@ p {
 p2 {
   line-height: 0.7em;
   }
+
 
 .error {
   color: red;
