@@ -1,7 +1,5 @@
 Automatic solving
 
-Test 
-
 Dropdown menu:
 Door Product Line
 
