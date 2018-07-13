@@ -3,12 +3,14 @@ Automatic solving
 Test 
 
 Dropdown menu:
-Add, subtract, multiply, divide.
+Door Product Line
 
-Two input boxes that take numbers.
+One input box that takes QTY.
 
 Calculate button that sends method name and numbers to the back end as json.
 
 Dropdown choices come from rest api.
 
 Display calculated result.
+
+Display combined results.
