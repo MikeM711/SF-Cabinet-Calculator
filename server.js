@@ -15,6 +15,7 @@ var config = require('./cabinetdata.json');
 // The below operators show up in the front end.  We can use them in our "calculate" section.
 let operators = [
 
+  {name:'Classic 100', symbol:'Classic 100'},
   {name:'Classic 999', symbol:'Classic 999'}, 
 
   {name:'EL: 116EL-SQ', symbol:'116EL-SQ'},
@@ -142,6 +143,18 @@ app.route('/calculator')
     let note = req.body.note
 
     //Classic Calculations
+
+    if ( operator == 'Classic 100' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = value1 / config.Classic_100_FullAssyPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
 
     if ( operator == 'Classic 999' )   
     {value_14GA = 0;

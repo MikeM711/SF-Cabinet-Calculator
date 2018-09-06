@@ -3,13 +3,11 @@
 
     "Classic": "Here are the Classic Cabinets",
 
+    "Classic_100_FullAssyPerSheet":9,
     "Classic_999_FullAssyPerSheet":7,
-
-
-
+    
     "Elite": "Here are the Elite Cabinets",
 
-    
     "Elite_100": "Here are the Elite 100 Cabinets - Standard",
 
     "EL_100_TubsPerSheet":8,
