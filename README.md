@@ -2,15 +2,11 @@
 
 Automatic solving
 
-Dropdown menu:
-Door Product Line
-
+Dropdown menu: SF Cabinets
 One input box that takes QTY.
 
 Calculate button that sends method name and numbers to the back end as json.
 
 Dropdown choices come from rest api.
 
-Display calculated result.
-
-Display combined results.
+Displays calculated result as well as combined result.
