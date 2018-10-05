@@ -1,5 +1,7 @@
 **Note to self**: some spaghetti code involved, needs tidying
 
+# SF Cabinet Calculator
+
 Automatic solving
 
 Dropdown menu: SF Cabinets
