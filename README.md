@@ -1,3 +1,5 @@
+**Note to self**: some spaghetti code involved, needs tidying
+
 Automatic solving
 
 Dropdown menu:
@@ -12,5 +14,3 @@ Dropdown choices come from rest api.
 Display calculated result.
 
 Display combined results.
-
-**Note to self**: some spaghetti code involved, needs fixing
