@@ -13,7 +13,9 @@
     "EL_100_TubsPerSheet":8,
 
     "EL_116_SQ_FrontsPerSheet":8,
+
     "EL_117_SQ_FrontsPerSheet":9,
+    "EL_117_SQ_3in_FrontsPerSheet":9,
     
     "EL_128_SQ_FrontsPerSheet":12,
 
