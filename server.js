@@ -1,7 +1,5 @@
 'use strict';
 
-//hello it is 7_9 3:36 pm
-
 //add mongodb to heroku https://www.youtube.com/watch?v=N42pkl-aIIQ
 
 // mobile listen: 10.0.0.240:3000
@@ -19,6 +17,8 @@ let operators = [
   {name:'Classic 999', symbol:'Classic 999'}, 
 
   {name:'EL: 116EL-SQ', symbol:'116EL-SQ'},
+  {name:'EL: 117EL-SQ', symbol:'117EL-SQ'},
+
   {name:'EL: 128EL-SQ', symbol:'128EL-SQ'},
 
   {name:'EL: 508EL-SQ', symbol:'508EL-SQ'},
@@ -43,7 +43,7 @@ let operators = [
 
   {name:'Hydrant House', symbol:'Hydrant House'},
 
-  {name:'Safeguard: 10lb ET Tub', symbol:'Safeguard: 10lb ET Tub'},
+  {name:'Safeguard: 10lb SG Tub', symbol:'Safeguard: 10lb SG Tub'},
 
 ];
 
@@ -177,6 +177,18 @@ app.route('/calculator')
     {value_14GA = 0;
     value_16GA_120x48= 0;
     value_16GA_120x60 = value1 / config.EL_116_SQ_FrontsPerSheet;
+    value_18GA = 0;
+    value_20GA = value1 / config.EL_100_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'EL: 117EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.EL_117_SQ_FrontsPerSheet;
     value_18GA = 0;
     value_20GA = value1 / config.EL_100_TubsPerSheet;
     value_18GA_SS = 0;
@@ -377,9 +389,9 @@ app.route('/calculator')
     value_16GA_Galv_120x60 = value1 / config.Hydrant_House;
     value_20GA_Galv = 0;}
 
-    //Safeguard ET Tub Calculations
+    //Safeguard SG Tub Calculations
 
-    if ( operator == 'Safeguard: 10lb ET Tub')   
+    if ( operator == 'Safeguard: 10lb SG Tub')   
     {value_14GA = 0;
     value_16GA_120x48= 0;
     value_16GA_120x60 = 0;
@@ -389,7 +401,7 @@ app.route('/calculator')
     value_20GA_SS = 0;
     value_16GA_Galv_120x48 = 0;
     value_16GA_Galv_120x60 = 0;
-    value_20GA_Galv = value1 / config.Safeguard_ET_Tub_10lb;}
+    value_20GA_Galv = value1 / config.Safeguard_SG_Tub_10lb;}
 
 
 

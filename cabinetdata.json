@@ -13,6 +13,8 @@
     "EL_100_TubsPerSheet":8,
 
     "EL_116_SQ_FrontsPerSheet":8,
+    "EL_117_SQ_FrontsPerSheet":9,
+    
     "EL_128_SQ_FrontsPerSheet":12,
 
 
@@ -55,9 +57,9 @@
 
     "Hydrant_House":0.166666666,
 
-    "Safeguard_ET_Tub": "Here are the Safeguard/ET Tubs",
+    "Safeguard_SG_Tub": "Here are the Safeguard/SG Tubs",
     
-    "Safeguard_ET_Tub_10lb":7,
+    "Safeguard_SG_Tub_10lb":7,
 
     "END":"End JSON"
   }
