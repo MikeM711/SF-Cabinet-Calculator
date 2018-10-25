@@ -1,14 +1,14 @@
-Automatic solving
+**Note to self**: some spaghetti code involved, needs tidying
 
-Dropdown menu:
-Door Product Line
+# SF Cabinet Calculator
 
-One input box that takes QTY.
+- Automatic solving
 
-Calculate button that sends method name and numbers to the back end as json.
+  - Dropdown menu: SF Cabinets
+  - One input box that takes QTY.
 
-Dropdown choices come from rest api.
+- Calculate button that sends method name and numbers to the back end as json.
 
-Display calculated result.
+- Dropdown choices come from rest api.
 
-Display combined results.
+- Displays calculated result as well as combined result.

@@ -14,12 +14,16 @@ var config = require('./cabinetdata.json');
 let operators = [
 
   {name:'Classic 100', symbol:'Classic 100'},
-  {name:'Classic 999', symbol:'Classic 999'}, 
+  {name:'Classic 999', symbol:'Classic 999'},
+
+  {name:'CM1101', symbol:'CM1101'},
 
   {name:'EL: 116EL-SQ', symbol:'116EL-SQ'},
   {name:'EL: 117EL-SQ', symbol:'117EL-SQ'},
   {name:'EL: 117EL-SQ-3in', symbol:'117EL-SQ-3in'},
+  {name:'EL: 118EL-SQ', symbol:'118EL-SQ'},
 
+  {name:'EL: 126EL-SQ', symbol:'126EL-SQ'},
   {name:'EL: 128EL-SQ', symbol:'128EL-SQ'},
 
   {name:'EL: 508EL-SQ', symbol:'508EL-SQ'},
@@ -70,8 +74,6 @@ function calculate14GA(operator, value1) {
 
 // Program has access here in the beginning
 console.log('hello3')
-
-// stuff idk (?)
 
 
 app.use(express.static(__dirname + '/build'));
@@ -169,6 +171,19 @@ app.route('/calculator')
     value_16GA_Galv_120x60 = 0;
     value_20GA_Galv = 0;}
 
+    //'CM1101 Calculations
+
+    if ( operator == 'CM1101' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = 0;
+    value_18GA = 0;
+    value_20GA = 0;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = value1 / config.CM1101_AssyPerSheet;
+    value_20GA_Galv = 0;}
 
     //Elite: STANDARD CALCULATIONS
 
@@ -202,6 +217,30 @@ app.route('/calculator')
     {value_14GA = 0;
     value_16GA_120x48= 0;
     value_16GA_120x60 = value1 / config.EL_117_SQ_3in_FrontsPerSheet;
+    value_18GA = 0;
+    value_20GA = value1 / config.EL_100_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'EL: 118EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.EL_118_SQ_FrontsPerSheet;
+    value_18GA = 0;
+    value_20GA = value1 / config.EL_100_TubsPerSheet;
+    value_18GA_SS = 0;
+    value_20GA_SS = 0;
+    value_16GA_Galv_120x48 = 0;
+    value_16GA_Galv_120x60 = 0;
+    value_20GA_Galv = 0;}
+
+    if ( operator == 'EL: 126EL-SQ' )   
+    {value_14GA = 0;
+    value_16GA_120x48= 0;
+    value_16GA_120x60 = value1 / config.EL_126_SQ_FrontsPerSheet;
     value_18GA = 0;
     value_20GA = value1 / config.EL_100_TubsPerSheet;
     value_18GA_SS = 0;

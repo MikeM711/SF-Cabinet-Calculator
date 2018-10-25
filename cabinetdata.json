@@ -5,6 +5,10 @@
 
     "Classic_100_FullAssyPerSheet":9,
     "Classic_999_FullAssyPerSheet":7,
+
+    "CM1101-description": "Here are the CM1101 Cabinets",
+
+    "CM1101_AssyPerSheet":0.33333,
     
     "Elite": "Here are the Elite Cabinets",
 
@@ -16,7 +20,11 @@
 
     "EL_117_SQ_FrontsPerSheet":9,
     "EL_117_SQ_3in_FrontsPerSheet":9,
+
+    "EL_118_SQ_FrontsPerSheet":8,
     
+    "EL_126_SQ_FrontsPerSheet":11,
+
     "EL_128_SQ_FrontsPerSheet":12,
 
 
