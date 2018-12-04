@@ -1,6 +1,4 @@
 {
-
-
     "Classic": "Here are the Classic Cabinets",
 
     "Classic_100_FullAssyPerSheet":9,
@@ -28,7 +26,6 @@
 
     "EL_128_SQ_FrontsPerSheet":12,
 
-
     "Elite_500": "Here are the Elite 500 Cabinets - Standard",
 
     "EL_500_TubsPerSheet":13,
@@ -38,13 +35,11 @@
     "EL_516_SQ_FrontsPerSheet":16,
     "EL_518_SQ_FrontsPerSheet":16,
     
-
     "Elite_100_SSF": "Here are the Elite 100 Cabinets - SSF",
     
     "EL_100_SSF_TubsPerSheet":6,
 
     "EL_128_SQ_SSF_FrontsPerSheet":10,
-
 
     "HDOC_Punch": "Here are the HDOC Cabinets - Punch",
 

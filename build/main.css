@@ -44,15 +44,13 @@ p2 {
   font-size: 200%;
 }
 
-
-/* Below modifies text that appears when you select a door*/
 .solve span {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: middle;
   padding: 0rem 1rem;
 }
-/* Below modifies input text */
+
 .solve input {
   font-size: 125%;
   line-height: 2rem;
@@ -65,7 +63,6 @@ button {
   margin: 0rem 0 0;
 }
 
-/* Below modifies result that appears after you calculate */
 .result {
   font-family: 'Lora', serif;
   margin: 0 0 1rem;
