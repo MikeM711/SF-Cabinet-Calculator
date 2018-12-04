@@ -1,4 +1,8 @@
-**Note to self**: some spaghetti code involved, needs tidying
+**Note to self**: Check out my notes on how I would improve this project if I were to create it again.  
+
+Notes are very similar to [WB Door Calculator](https://github.com/MikeM711/WB-Door-Calculator) Repository
+
+To add: Testing would be fantastic, much like my tests in my [Coding Callenges](https://github.com/MikeM711/Coding-Challenges) Repository 
 
 # SF Cabinet Calculator
 
